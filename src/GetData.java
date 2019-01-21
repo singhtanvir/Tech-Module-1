@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class GetData {
 	int  empno[], basic[], hra[], it[], da[], emp, i, salary;
-	String empname[], joindate[], department[], designationcode[], designation[];
+	String empname[], joindate[], department[], designationcode[], designation[], reinput;
 	Scanner keyboardInput = new Scanner(System.in);
 	
 	public void userInput() {
@@ -87,6 +87,16 @@ public class GetData {
 				salary = basic[i] + hra[i] + da[i] - it[i];
 				System.out.println("Salary: " + salary);
 			}
+		}
+	}
+	public void retryInput() {
+		System.out.println("Enter Y/y to register more employees | Enter N/n to exit");
+		reinput = keyboardInput.next();
+		if(reinput.equals("Y") || reinput.equals("y")) {
+			userInput();
+		}
+		else if(reinput.equals("N") || reinput.equals("n")) {
+			System.exit(0);
 		}
 	}
 }
